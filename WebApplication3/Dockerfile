@@ -30,5 +30,8 @@ COPY --from=build /root/.dotnet/tools /root/.dotnet/tools
 # Set the PATH environment variable
 ENV PATH="${PATH}:/root/.dotnet/tools"
 
+# Expose both HTTP and HTTPS ports
+EXPOSE 80
+EXPOSE 443
 
 ENTRYPOINT ["dotnet", "WebApplication3.dll"]

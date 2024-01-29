@@ -6,12 +6,15 @@ services:
     build:
       context: .
       dockerfile: WebApplication3/Dockerfile
+    ports:
+      - "80:80"
+      - "443:443"
     networks:
       - my_network
   SqlServerDb:
     user: root
     env_file:
-      - .env.sample
+      - .env
     volumes:
       - ./dev_db_data:/var/opt/mssql/data
     container_name: SqlServerContainer
